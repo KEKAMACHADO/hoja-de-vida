@@ -8,7 +8,6 @@
 </head>
 <body>
     <header>
-       
         <h1>Erika Patricia Machado Morales</h1>
         <p>Ibagué, Colombia · +57 3202169446 · <a href="mailto:erikamachado@hotmail.com">erikamachado@hotmail.com</a></p>
         <nav>
@@ -22,11 +21,13 @@
         <p>Con más de 8 años de experiencia como ejecutiva comercial, he logrado una mejora del 100% en la entrega de proyectos de vivienda VIS y no VIS...</p>
     </section>
     
+    <!-- Botones para alternar entre habilidades -->
     <div class="tabs">
-        <button onclick="openTab('habilidades-tecnicas')">Habilidades Técnicas</button>
-        <button onclick="openTab('habilidades-blandas')">Habilidades Blandas</button>
+        <button class="tab-button" data-tab="habilidades-tecnicas">Habilidades Técnicas</button>
+        <button class="tab-button" data-tab="habilidades-blandas">Habilidades Blandas</button>
     </div>
-    
+
+    <!-- Sección de habilidades técnicas -->
     <section id="habilidades-tecnicas" class="tab active-tab">
         <h2>Habilidades Técnicas</h2>
         <ul>
@@ -36,7 +37,8 @@
             <li>Git, Visual Studio</li>
         </ul>
     </section>
-    
+
+    <!-- Sección de habilidades blandas -->
     <section id="habilidades-blandas" class="tab">
         <h2>Habilidades Blandas</h2>
         <ul>
@@ -47,7 +49,24 @@
             <li>Trabajo en equipo</li>
         </ul>
     </section>
-    
+
+    <!-- Formulario de contacto -->
+    <section>
+        <h2>Contacto</h2>
+        <form action="enviar.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
