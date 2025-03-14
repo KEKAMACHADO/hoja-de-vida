@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Función para cambiar entre pestañas
     function openTab(tabName) {
         let tabs = document.querySelectorAll(".tab");
+        let buttons = document.querySelectorAll(".tab-button");
+
+        // Ocultar todas las pestañas y desactivar los botones
         tabs.forEach(tab => tab.classList.remove("active-tab"));
-        
+        buttons.forEach(button => button.classList.remove("active"));
+
+        // Mostrar la pestaña seleccionada y activar el botón
         document.getElementById(tabName).classList.add("active-tab");
+        document.querySelector(`[data-tab="${tabName}"]`).classList.add("active");
     }
 
-    // Agregar evento a los botones
+    // Agregar eventos a los botones
     let tabButtons = document.querySelectorAll(".tab-button");
     tabButtons.forEach(button => {
         button.addEventListener("click", function () {
@@ -16,23 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Validar formulario antes de enviarlo
-    const form = document.querySelector("form");
-    if (form) {
-        form.addEventListener("submit", function (event) {
-            let nombre = document.getElementById("nombre").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let mensaje = document.getElementById("mensaje").value.trim();
-
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (nombre === "" || email === "" || mensaje === "") {
-                alert("Por favor, completa todos los campos.");
-                event.preventDefault();
-            } else if (!emailRegex.test(email)) {
-                alert("Por favor, ingresa un correo electrónico válido.");
-                event.preventDefault();
-            }
-        });
-    }
+    // Mostrar la primera pestaña por defecto
+    openTab("habilidades-tecnicas");
 });
